@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>BTAS - Basic Tensor Algebra Subroutines</title>
+    <meta http-equiv="content-language" content="en" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">$(document).ready(function(){});</script>
+    <script type="text/javascript" src="scripts/jquery.corner.js"></script>
+
+    <style type="text/css">
+    </style>
+
+</head>
+
+<body>
+
+<div id="main">
+
+
+<div id="banner">
+<img src="BTAS_logo.png"/>
+</div>
+
+<div id="navbar" class="rounded">
+    <a class="thispage" href="index.html">Home</a>
+    <a href="docs.cgi">Docs</a>
+    <a href="collaboration.html">Collaboration</a>
+</div>
+
+
+
+
+<div class="full">
+
+    <br/>
+
+    <div id="download" class="rounded">
+        <h4>Download latest <br/> version <a href="https://github.com/BTAS/BTAS/tree/v1.2.3" target="_blank">v1.2.3</a> 
+        (<a href="docs.cgi?page=changelog#v1.2.3">changelog</a>)</h4>
+        <ul>
+        <li><a href="https://github.com/ITensor/library/tarball/v1.2.3">tar.gz</a></br>
+        <li><a href="https://github.com/ITensor/library/zipball/v1.2.3">zip</a></br>
+        </ul>
+        Or track our latest<br/> code via <a target="_blank" href="https://github.com/ITensor/library">github</a>
+    </div>
+
+    <p>
+    BTAS is a C++ library for performing operations on dense tensors. 
+    It provides high efficiency under a convenient interface.
+    </p>
+    <p>
+    Features include:
+    <ul id="features">
+    <li>Tensor class supporting efficient contraction and arithmetic.</li>
+    <li>Linear algebra package for tensor decompositions.</li>
+    <li>Serialization of tensors.</li>
+    </ul>
+    </p>
+
+    <br/>
+    <br/>
+
+</div>
+
+
+<div class="full section rounded"> <h2>Code Samples</h2> </div>
+
+<div class="full screenshot">
+<h2>Contracting Tensors</h2>
+<pre>
+// Set index ranges
+Tensor&lt;double&gt; A(10,2,10,2),
+               B(2,10,2);
+<!--<img src="tensor_diagram.png" width="240px" style="float: right; margin-right:50px;"/>-->
+<img src="tensor_diagram_alpha.png" width="240px" style="float: right; margin-right:50px;"/>
+// Set tensor components
+A[1,2,1,2] = -0.5;
+A[2,2,2,2] = 0.5;
+B[1,5,2]   = 1.8;
+// etc.
+
+// Use integers (here enum) to label 
+// uncontracted and contracted indices
+enum { i,j,k,l,m,p };
+// result will be C = 1.0*A*B + 1.0*C
+contract(1.0,
+         A,shape(i,j,k,l),
+         B,shape(m,k,p),
+         1.0,
+         C,shape(m,l,i,j,p));
+</pre>
+</div>
+
+<div id="footer"></div>
+
+</div> <!--id="main"-->
+
+<script type="text/javascript">$(function() {$('.rounded').corner("7px");});</script>
+
+</body>
+</html>
