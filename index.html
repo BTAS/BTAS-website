@@ -78,9 +78,9 @@ Tensor&lt;double&gt; A(10,2,10,2),
 <!--<img src="tensor_diagram.png" width="240px" style="float: right; margin-right:50px;"/>-->
 <img src="tensor_diagram_alpha.png" width="240px" style="float: right; margin-right:50px;"/>
 // Set tensor components
-A[1,2,1,2] = -0.5;
-A[2,2,2,2] = 0.5;
-B[1,5,2]   = 1.8;
+A(0,1,0,1) = -0.5;
+A(1,1,1,1) = 0.5;
+B(0,4,1)   = 1.8;
 // etc.
 
 // Use integers (here enum) to label 
