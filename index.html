@@ -50,7 +50,7 @@
 
     <p>
     BTAS is a C++ library for performing operations on dense tensors. 
-    It provides high efficiency under a convenient interface.
+    It provides high efficiency and flexibility with a convenient interface.
     </p>
     <p>
     Features include:
@@ -88,10 +88,10 @@ B(0,4,1)   = 1.8;
 enum { i,j,k,l,m,p };
 // result will be C = 1.0*A*B + 1.0*C
 contract(1.0,
-         A,shape(i,j,k,l),
-         B,shape(m,k,p),
+         A,{i,j,k,l},
+         B,{m,k,p},
          1.0,
-         C,shape(m,l,i,j,p));
+         C,{m,l,i,j,p});
 </pre>
 </div>
 
