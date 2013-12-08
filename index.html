@@ -39,6 +39,10 @@
     <br/>
 
     <div id="download" class="rounded">
+        <h4>Track development on github:</h4>
+        Newest version <a href="https://github.com/naokin/BTAS-TWG" target="_blank">v0.0.1</a> 
+        Original version <a href="https://github.com/naokin/btas" target="_blank">v0.0.0</a>  <br/>
+        <!--
         <h4>Download latest <br/> version <a href="https://github.com/BTAS/BTAS" target="_blank">v0.0.0</a> 
         (<a href="docs.cgi?page=changelog#v0.0.0">changelog</a>)</h4>
         <ul>
@@ -46,18 +50,19 @@
         <li><a href="https://github.com/BTAS/BTAS/archive/master.zip">zip</a></br>
         </ul>
         Or track our latest<br/> code via <a target="_blank" href="https://github.com/BTAS/BTAS">github</a>
+        -->
     </div>
 
     <p>
-    BTAS is highly efficient and flexible C++ tensor library with a convenient interface.
+    BTAS is a C++ software framework for computation of tensor data. It is a concept specification
+    and includes an efficient reference implementation.
     </p>
     <p>
     Features include:
     <ul id="features">
-    <li>Tensor class supporting efficient contraction and arithmetic.</li>
-    <li>Slicing of tensors.</li>
-    <li>Linear algebra package for tensor decompositions.</li>
-    <li>Serialization of tensors.</li>
+    <li>Dense Tensor class providing efficient BLAS-like routines.</li>
+    <li>Tensor slicing and other views.</li>
+    <li>Block-sparse tensor class and quantum numbers.</li>
     </ul>
     </p>
 
@@ -72,12 +77,12 @@
 <div class="full screenshot">
 <h2>Contracting Tensors</h2>
 <pre>
-// Set index dimensions (a.k.a. tensor shape)
+// Set index dimensions (tensor shape)
 Tensor&lt;double&gt; A(10,2,10,2),
                B(2,10,2);
 <!--<img src="tensor_diagram.png" width="240px" style="float: right; margin-right:50px;"/>-->
 <img src="tensor_diagram_alpha.png" width="240px" style="float: right; margin-right:50px;"/>
-// Set tensor components (0-indexed)
+// Access tensor components (0-indexed)
 A(0,1,0,1) = -0.5;
 A(1,1,1,1) = 0.5;
 B(0,4,1)   = 1.8;
@@ -86,8 +91,8 @@ B(0,4,1)   = 1.8;
 // Use integers (obtained from an enum in this example)
 // to specify uncontracted and contracted indices
 enum { i,j,k,l,m,p };
-// result will be C = 1.0*A*B + 1.0*C
-contract(1.0,
+// result will be C = 2.0*A*B + 1.0*C
+contract(2.0,
          A,{i,j,k,l},
          B,{m,k,p},
          1.0,
