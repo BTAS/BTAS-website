@@ -1,5 +1,5 @@
-* [[Dense Tensor class|tensor]]. Interface specification for dense tensor.
+* [[Dense Tensor class|tensor]]. Specification of dense tensor interface.
 
-* [[Dense Tensor BLAS|blas]]. Interface specification for basic tensor routines.
+* [[Dense Tensor BLAS|blas]]. Basic tensor routines interface specification.
 
 * [[NDIterator|nditerator]]. Flexible iterator view of tensor data.

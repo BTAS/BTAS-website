@@ -94,9 +94,9 @@ code { font-family: monospace; font-size: 12pt; }
     box-shadow: 1px 1px 1px #999;
     }
 #download h4 { color: black; margin-bottom: 10px;}
-#download a { color: #A0000F; text-decoration: none;}
-#download ul { display: table; color: #CD2626; margin-bottom:0px; padding-bottom:0px; }
-#download ul li { display: table; padding-left: 20px; color: #CD2626; }
+#download a { color: #A0000F; text-decoration: box;}
+#download ul { display: table; margin-bottom:0px; padding-bottom:0px; }
+#download ul li { font-size: 11pt; display: table; padding-left: 10px;  }
 
 #latest 
     { 
